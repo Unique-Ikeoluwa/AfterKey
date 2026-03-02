@@ -137,7 +137,7 @@ export default function PrivySignIn() {
                   <input
                     type="text"
                     placeholder="000000"
-                    className="bg-transparent flex-1 outline-none text-white text-center text-3xl tracking-[0.3em] md:tracking-[0.5em] pl-[0.5em] md:pl-0 font-mono placeholder:text-slate-800"
+                    className="bg-transparent w-full flex-1 outline-none text-white text-center text-3xl tracking-[0.3em] md:tracking-[0.5em] pl-[0.5em] md:pl-0 font-mono placeholder:text-slate-800"
                     onChange={(e) =>
                       setCode(e.target.value.replace(/\D/g, "").slice(0, 6))
                     }
