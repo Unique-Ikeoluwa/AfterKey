@@ -8,7 +8,6 @@ export default function NotificationBell() {
   const [open, setOpen] = useState(false);
   const bellRef = useRef<HTMLDivElement>(null);
 
-  // 1. Close when clicking anywhere outside the component
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (bellRef.current && !bellRef.current.contains(event.target as Node)) {
@@ -34,17 +33,13 @@ export default function NotificationBell() {
       </button>
 
       {open && (
-        /* 
-           Mobile Fix: Changed 'absolute' to 'fixed' on mobile (sm:absolute) 
-           Added 'right-4' and 'left-4' for mobile centering 
-        */
         <div className="fixed sm:absolute right-4 left-4 sm:left-auto sm:right-0 mt-4 sm:w-80 bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl z-[60] backdrop-blur-xl overflow-hidden">
           <div className="flex items-center justify-between p-4 border-b border-slate-800/50 bg-slate-900/50">
             <h4 className="font-bold text-white text-xs uppercase tracking-widest">Notifications</h4>
             {notifications.length > 0 && (
               <button 
                 onClick={(e) => {
-                  e.stopPropagation(); // Prevents closing when clicking 'Clear All'
+                  e.stopPropagation();
                   clearNotifications();
                 }}
                 className="text-[10px] flex items-center gap-1 text-indigo-400 hover:text-indigo-300 font-bold uppercase transition-colors"
